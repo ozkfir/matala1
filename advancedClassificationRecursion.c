@@ -8,18 +8,14 @@ int isArmstrong1(int,int,int);
 int power(int,int);
 
 
-int isPalindrome(int n)
-{
-    int reverse=0;
-    int n2=isPalindrome1(n,reverse);
-    if(n2==n)
-        return 1;
-    return 0;
+int isPalindrome(int n) {
+    int reverse = 0;
+    return isPalindrome1(n, reverse);
 }
 
 int isPalindrome1(int n,int reverse)
 {
-    if(n/10==reverse ||n==reverse)
+    if(n/10==reverse || n==reverse)
         return 1;
     if(n==0 && reverse!=0)
         return 0;

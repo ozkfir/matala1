@@ -41,7 +41,7 @@ int isPalindrome(int n)
     int digit;
     while (tmp>0)
     {
-        digit=n%10;
+        digit=tmp%10;
         n2=n2*10+digit;
         tmp/=10;
     }

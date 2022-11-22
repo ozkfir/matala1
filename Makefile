@@ -10,26 +10,33 @@ maindrec:main.o libclassrec.so
 mains: main.o libclassrec.a
 	$(CC) $(FLAGS) main.o -o $@ -lclassrec -L.
 
+loops:libclassloops.a
+
+recursives:libclassrec.a
+
+recursived:libclassrec.so
+
+loopd:libclassloops.so
+
+
 libclassloops.a: advancedClassificationloop.o  basicClassification.o
 	ar -rcs libclassloops.a advancedClassificationloop.o  basicClassification.o
 libclassrec.a: advancedClassificationRecursion.o basicClassification.o
 	ar -rcs libclassrec.a advancedClassificationRecursion.o basicClassification.o
 
 libclassrec.so: advancedClassificationRecursion.o basicClassification.o
-	$(CC) -shared -o  libclassrec.so advancedClassificationRecursion.o basicClassification.o
+	$(CC) -shared advancedClassificationRecursion.o basicClassification.o -o  libclassrec.so
 libclassloops.so: advancedClassificationloop.o  basicClassification.o
 	$(CC) -shared -o libclassloops.so advancedClassificationloop.o  basicClassification.o
 
-loops:libclassloops.a main.o
-	$(CC) $(FLAGS)  main.o libclassloops.a  -o $@
-recursives:libclassrec.a main.o
-	$(CC) $(FLAGS)  main.o libclassrec.a  -o $@
-recursived:libclassrec.so main.o
-	$(CC) $(FLAGS)  main.o libclassrec.so  -o $@
-loopd:libclassloops.so main.o
-	$(CC) $(FLAGS) main.o libclassloops.so  -o $@
 
 
+advancedClassificationRecursion.o:advancedClassificationRecursion.c
+	$(CC) $(FLAGS) -fPIC -c advancedClassificationRecursion.c -fPIC
+advancedClassificationloop.o:advancedClassificationloop.c
+	$(CC) $(FLAGS) -fPIC -c advancedClassificationloop.c
+basicClassification.o:basicClassification.c
+	$(CC) $(FLAGS) -fPIC -c basicClassification.c
 
 main.o: main.c NumClass.h
 	$(CC) $(FLAGS) -c main.c

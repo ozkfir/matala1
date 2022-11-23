@@ -3,7 +3,6 @@
 
 int main() {
     int tmpsmall,small,big;
-    printf("Enter two numbers:\n");
     scanf("%d%d",&small,&big);
     printf("The Armstrong numbers are:");
     for(tmpsmall=small;tmpsmall<=big;tmpsmall++)

@@ -32,7 +32,7 @@ libclassloops.so: advancedClassificationloop.o  basicClassification.o
 
 
 advancedClassificationRecursion.o:advancedClassificationRecursion.c
-	$(CC) $(FLAGS) -fPIC -c advancedClassificationRecursion.c -fPIC
+	$(CC) $(FLAGS) -fPIC -c advancedClassificationRecursion.c
 advancedClassificationloop.o:advancedClassificationloop.c
 	$(CC) $(FLAGS) -fPIC -c advancedClassificationloop.c
 basicClassification.o:basicClassification.c

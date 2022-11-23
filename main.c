@@ -9,7 +9,7 @@ int main() {
         if(isArmstrong(tmpsmall))
             printf(" %d",tmpsmall);
     printf("\n");
-    printf("The Palindrome are:");
+    printf("The Palindromes are:");
     for(tmpsmall=small;tmpsmall<=big;tmpsmall++)
         if(isPalindrome(tmpsmall))
             printf(" %d",tmpsmall);
